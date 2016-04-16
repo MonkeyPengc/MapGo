@@ -13,7 +13,7 @@ def parse_file(blob_reader):
 
 # -----------------------------------------------------------------------------
 # define a function that generates URL of the queried map
-def generate_url(center=None, zoom=16, imgsize="640x640", maptype="satellite", locations=None, markers=None):
+def generate_url(center=None, zoom=18, imgsize="640x640", maptype="satellite", locations=None, markers=None):
     """       
         An example of URL:
         https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13
@@ -31,7 +31,7 @@ def generate_url(center=None, zoom=16, imgsize="640x640", maptype="satellite", l
     url += "maptype=%s&" % maptype
     
     if locations != None:
-        url += "&path=color:0xff0000|weight:5"
+        url += "&path=color:0x0000ff|weight:5"
         for location in locations:
             url += "%s" % location
 
