@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+  
+  {% block content %}
+ 
+  {% if img_url %}	
+  <h1>Query Map</h1>
+  <img class="map" src="{{img_url}}">
+  {% endif %}
+
+  {% endblock %}
+
