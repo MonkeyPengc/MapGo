@@ -17,7 +17,6 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)
 
-
 secret = 'onepiece'
 
 
@@ -233,7 +232,7 @@ class FetchHandler(BaseHandler):
         
  
 # -----------------------------------------------------------------------------
-# define a class for file upload handler
+# define a class for parsing file and viewing map
 class ParseHandler(BaseHandler, blobstore_handlers.BlobstoreUploadHandler):
     def post(self):
         upload = self.get_uploads('file')[0]
@@ -244,7 +243,9 @@ class ParseHandler(BaseHandler, blobstore_handlers.BlobstoreUploadHandler):
         if img_url != None:                
             self.render('view-map.html', img_url=img_url)
         
-
+ 
+# -----------------------------------------------------------------------------
+# Home Page
 class Home(BaseHandler):
     def get(self):
         self.write('Welcome to TrackMaps!')
@@ -259,5 +260,4 @@ app = webapp2.WSGIApplication([('/', Home),
                                ('/parse_file', ParseHandler),
                                ],
                               debug=True)
-
 
