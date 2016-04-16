@@ -248,7 +248,8 @@ class ParseHandler(BaseHandler, blobstore_handlers.BlobstoreUploadHandler):
 # Home Page
 class Home(BaseHandler):
     def get(self):
-        self.write('Welcome to TrackMaps!')
+        words = " Welcome to MapGo! "
+        self.write(words)
 
 # -----------------------------------------------------------------------------
 # define routings
