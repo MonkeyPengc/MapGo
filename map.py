@@ -244,10 +244,11 @@ class ParseHandler(BaseHandler, blobstore_handlers.BlobstoreUploadHandler):
         if img_url != None:                
             self.render('view-map.html', img_url=img_url)
         
-
+# -----------------------------------------------------------------------------
+# define the home page
 class Home(BaseHandler):
     def get(self):
-        self.write('Welcome to TrackMaps!')
+        self.render('home.html') 
 
 # -----------------------------------------------------------------------------
 # define routings
