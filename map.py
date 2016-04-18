@@ -245,11 +245,10 @@ class ParseHandler(BaseHandler, blobstore_handlers.BlobstoreUploadHandler):
         
  
 # -----------------------------------------------------------------------------
-# Home Page
+# define the home page
 class Home(BaseHandler):
     def get(self):
-        words = " Welcome to MapGo! "
-        self.write(words)
+        self.render('home.html')
 
 # -----------------------------------------------------------------------------
 # define routings
