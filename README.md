@@ -5,7 +5,7 @@ web url: http://maptrack-1283.appspot.com/
 
 ### Project Details
 
-This app needs the user to register an account before using it. (http://maptrack-1283.appspot.com/signup)
+This app needs the user to register an account before using it.
 
 The current content includes tracking the path, and showing the corresponding satellite map, of your upload file.
 
