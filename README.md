@@ -18,3 +18,8 @@ Please reference:
 https://cloud.google.com/appengine/docs/python/ 
 
 More functions will be introduced later, in order to be more useful and robust.
+
+##### User Interaction
+- map type
+- zoom
+- add path
