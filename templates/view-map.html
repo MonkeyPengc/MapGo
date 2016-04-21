@@ -3,9 +3,13 @@
   {% block content %}
  
   {% if img_url %}	
-  <h1>Query Map</h1>
+  <h1>Map</h1>
   <img class="map" src="{{img_url}}">
   {% endif %}
+
+  <form action="/upload_file">
+    <input type="button" name="back" value="Back" onClick="history.go(-1);return true;">
+  </form>
 
   {% endblock %}
 
