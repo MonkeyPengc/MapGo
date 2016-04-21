@@ -26,9 +26,9 @@ def generate_url(center=None, zoom=18, imgsize="640x640", maptype="satellite", l
     # if center and zoom  are not given, the map will show all marker locations
     if center != None:
         url += "center=%s&" % center
-    url += "zoom=%i&" % zoom
+    url += "zoom=%i&" % int(zoom)
     url += "size=%s&" % imgsize  
-    url += "maptype=%s&" % maptype
+    url += "maptype=%s&" % str(maptype)
     
     if locations != None:
         url += "&path=color:0x0000ff|weight:5"

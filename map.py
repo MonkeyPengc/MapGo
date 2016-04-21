@@ -17,7 +17,6 @@ template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir),
                                autoescape = True)
 
-
 secret = 'onepiece'
 
 
@@ -233,21 +232,29 @@ class FetchHandler(BaseHandler):
         
  
 # -----------------------------------------------------------------------------
-# define a class for file upload handler
+# define a class for parsing file and viewing map
 class ParseHandler(BaseHandler, blobstore_handlers.BlobstoreUploadHandler):
-    def post(self):
-        upload = self.get_uploads('file')[0]
-        blob_key = upload.key()
-        blob_reader = blobstore.BlobReader(blob_key) # instantiate a BlobReader for a given BlobStore value.
-        locations = parse_file(blob_reader) 
-        img_url = generate_url(locations=locations) 
-        if img_url != None:                
+    def post(self): 
+        try:      
+            zoom = self.request.get('zoom')
+            maptype = self.request.get('maptype')
+            upload = self.get_uploads('file')[0]
+            blob_key = upload.key()
+            blob_reader = blobstore.BlobReader(blob_key) # instantiate a BlobReader for a given BlobStore value.
+            locations = parse_file(blob_reader) 
+            img_url = generate_url(zoom=zoom, maptype=maptype, locations=locations) 
+        except IndexError:
+            self.redirect('/upload_file')
+        else:                
             self.render('view-map.html', img_url=img_url)
         
 
+# -----------------------------------------------------------------------------
+# define the home page
 class Home(BaseHandler):
     def get(self):
         self.render('home.html') 
+
 
 # -----------------------------------------------------------------------------
 # define routings

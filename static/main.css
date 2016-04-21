@@ -42,7 +42,7 @@ h2 {
 
 label {
   display: block;
-  font-size: 20px;
+  font-size: 10px;
 }
 
 label + label {
@@ -64,5 +64,5 @@ input[type=submit] {
 .map {
     position: absolute;
     right: 0;
-    top: 100px;
+    top: 120px;
 }

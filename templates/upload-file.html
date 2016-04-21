@@ -4,6 +4,22 @@
 
      <form action="{{upload_url}}" method="POST" enctype="multipart/form-data">
         Upload File: <input type="file" name="file"><br>
+          <br>
+          <label class="label">
+          Zoom:
+          <select name="zoom">
+             <option value="16">16</option>
+             <option value="17">17</option>
+             <option value="18">18</option>
+             <option value="19">19</option> </select>
+          </label>
+          <label class="label">
+          Map type:
+          <select name="maptype">
+             <option value="satellite">Satellite</option>
+             <option value="roadmap">Roadmap</option> </select>
+          </label>
+          <br>
           <input type="submit" name="submit" value="Submit">
      </form>
 {% endblock %}
